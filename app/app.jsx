@@ -1,16 +1,21 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var Main = require('Main');
+var Weather = require('Weather');
+var About = require('About');
+var Examples = require('Examples');
+//destructuring syntax (ES2016)
+//Same as var Route = require('react-router').Route;
+var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 
-var objOne = {
-  name: 'Artem',
-  location:'Oulu'
-};
-var objTwo = {
-  age: 20,
-  ...objOne
-};
-console.log(objTwo);
+
 ReactDOM.render(
-<h1>Boilerplate app!</h1>,
+<Router history = {hashHistory}>
+  <Route path="/" component = {Main}>
+    <Route path="about" component = {About}/>
+    <Route path="examples" component = {Examples}/>
+    <IndexRoute component = {Weather}/>
+  </Route>
+</Router>,
 document.getElementById('app')
 );
