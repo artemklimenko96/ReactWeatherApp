@@ -7,8 +7,9 @@ var Examples = require('Examples');
 //destructuring syntax (ES2016)
 //Same as var Route = require('react-router').Route;
 var {Route, Router, IndexRoute, hashHistory} = require('react-router');
-
-
+//Load foundation
+require('style!css!foundation-sites/dist/foundation.min.css');
+$('document').foundation();
 ReactDOM.render(
 <Router history = {hashHistory}>
   <Route path="/" component = {Main}>
